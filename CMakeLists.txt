@@ -32,9 +32,19 @@ if (DEFINED BCMHOST)
     MESSAGE("bcm_host.h found")
     set(GLSystem "OpenGL ES")
 else()
-    MESSAGE("bcm_host.h not found")
+    MESSAGE(FATAL_ERROR "bcm_host.h not found")
 endif()
 
+if(DEFINED BCMHOST)
+    LIST(APPEND COMMON_LIBRARIES
+            bcm_host
+            vcos
+            mmal_core
+            mmal_util
+            mmal_vc_client)
+endif()
+
+set(COMMON_INCLUDE_DIRS "${RPI_ROOT_PATH}/include")
 
 add_executable(${PROJECT_NAME} rpi_cam_previewer.cc)
 #//bcm_host -lvcos -lmmal_core -lmmal_util -lmmal_vc_client
