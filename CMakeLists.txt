@@ -15,7 +15,7 @@ message(STATUS "Build of type ${CMAKE_BUILD_TYPE}")
 
 set (CMAKE_CXX_STANDARD 14)
 
-find_package(bcm_host REQUIRED)
+#find_package(bcm_host REQUIRED)
 
 # First try the non standard path (raspbian and co)
 if(EXISTS "/opt/vc/include/bcm_host.h")
@@ -36,5 +36,5 @@ else()
 endif()
 
 
-add_executable(${PROJECT_NAME} rpi_cam_previewer.c)
+add_executable(${PROJECT_NAME} rpi_cam_previewer.cc)
 #//bcm_host -lvcos -lmmal_core -lmmal_util -lmmal_vc_client
