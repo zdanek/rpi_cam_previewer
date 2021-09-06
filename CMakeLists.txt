@@ -47,4 +47,5 @@ endif()
 set(COMMON_INCLUDE_DIRS "${RPI_ROOT_PATH}/include")
 
 add_executable(${PROJECT_NAME} rpi_cam_previewer.cc)
+target_include_directories(${PROJECT_NAME} ${COMMON_INCLUDE_DIRS})
 #//bcm_host -lvcos -lmmal_core -lmmal_util -lmmal_vc_client
